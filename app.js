@@ -4,6 +4,7 @@ const handlebars = require('express-handlebars')
 const bodyParser = require('body-parser')
 const app = express()
 const admin = require('./routes/admin')
+const usuarios = require('./routes/usuario')
 const path = require('path')
 const mongoose = require('mongoose')
 const session = require ('express-session')
@@ -49,13 +50,16 @@ const flash = require ('connect-flash')
     
 /* Rotas */
     app.get('/',function(req, res){
-        res.render(__dirname + '/views/layouts/main')
+        res.render("index")
     })
-    app.use('/admin',admin)
-
+    
+/* Rotas Arquivos */    
+app.use('/admin',admin)
+app.use('/usuario',usuarios)
 
 /* Servidor */ 
 const port = 8080
 app.listen(port, function() {
     console.log ('Servidor Rodando!')    
 })
+

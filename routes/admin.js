@@ -3,9 +3,11 @@ const express = require('express')
 const router = express.Router();
 const mongoose = require('mongoose')
 
-/* Model Categoria */
+/* Models */
 require('../models/Categoria')
 const Categoria = mongoose.model('categorias')
+
+/* Rotas */
 
 router.get('/', function(req, res){
     res.render('admin/index')
